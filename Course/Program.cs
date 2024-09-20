@@ -4,24 +4,27 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        string frase = Console.ReadLine();
-        string x = Console.ReadLine();
-        string y = Console.ReadLine();
-        string z = Console.ReadLine();
+        Console.WriteLine("Entrada:  ");
+        int a = int.Parse(Console.ReadLine());
+        int b = int.Parse(Console.ReadLine());
+        int soma = a + b;
+        Console.WriteLine("Soma = " + soma);
 
-        string[] v = Console.ReadLine().Split(' ');
-        string a = v[0];
-        string b = v[1];
-        string c = v[2];
+        Console.WriteLine("===========================");
+        Console.WriteLine("Entrada: Valor do Raio");
+        double d = double.Parse(Console.ReadLine());
+        double area = Math.PI * Math.Pow(d, 2);
+        Console.WriteLine($"Saída: A={area:F4}");
 
-        Console.WriteLine("Você digitou: ");
-        Console.WriteLine(frase);
-        Console.WriteLine(x);
-        Console.WriteLine(y);
-        Console.WriteLine(z);
-        Console.WriteLine(a);
-        Console.WriteLine(b);
-        Console.WriteLine(c);
+        Console.WriteLine("======================================");
+        int n1 = int.Parse(Console.ReadLine());
+        int n2 = int.Parse(Console.ReadLine());
+        int n3 = int.Parse(Console.ReadLine());
+        int n4 = int.Parse(Console.ReadLine());
+        int diferenca = (n1 * n2 - n3 * n4);
+        Console.WriteLine("Diferença = " + diferenca);
 
+       
+        
     }
 }
