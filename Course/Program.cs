@@ -5,24 +5,30 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        int a = 10;
-        Console.WriteLine(a);
+        string produto1 = "Computador";
+        string produto2 = "Mesa de escritório";
+        byte idade = 30;
+        int codigo = 5290;
+        char genero = 'M';
+        double preco1 = 2100.0;
+        double preco2 = 650.50;
+        double medida = 53.234567;
 
-        a += 2;
-        Console.WriteLine(a);
+        Console.WriteLine("Produtos: ");
+        Console.WriteLine($"{produto1}, Cujo o preço é ${preco1}");
+        Console.WriteLine($"{produto2}, cujo o preço é ${preco2}");
 
-        a++;
-        Console.WriteLine(a);
+        Console.WriteLine($"Registro: {idade} anos de idade, código {codigo} e gênero{genero}");
 
-        a--;
-        Console.WriteLine(a);
+        // Exibir medida com oito casas decimais
+        Console.WriteLine($"Medida com oito casas decimais: {medida:F8}");
 
+        // Arredondar para três casas decimais e exibir
+        Console.WriteLine($"Arredondado (três casas decimais): {Math.Round(medida, 3)}");
 
-        int b = a++;
-        Console.WriteLine(b);
-
-        int c = ++a;
-        Console.WriteLine(c);
+        // Exibir medida com três casas decimais usando CultureInfo.InvariantCulture
+        Console.WriteLine(medida.ToString("F3", CultureInfo.InvariantCulture));
+    
 
     }
 }
