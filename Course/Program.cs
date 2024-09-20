@@ -5,20 +5,16 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        double a;
-        float b;
+        double a = 1.0, b = -3.0, c = -4.0;
 
-        a = 5.1;
-        b = (float)a;
+        double delta = Math.Pow(b, 2.0)
+            - 4.0 * a * c;
 
-        Console.WriteLine(b);
+        double x1 = (-b + Math.Sqrt(delta))
+            / (2.0 * a);
 
-        int c = 5;
-        int y = 2;
-
-        double resultado = (double) c / y;
-
-        Console.WriteLine(resultado);
+        Console.WriteLine(delta);
+        Console.WriteLine(x1);
 
     }
 }
