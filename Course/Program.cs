@@ -4,27 +4,29 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Entrada:  ");
-        int a = int.Parse(Console.ReadLine());
-        int b = int.Parse(Console.ReadLine());
-        int soma = a + b;
-        Console.WriteLine("Soma = " + soma);
+        double xA, xB, xC, yA, yB, yC;
+        Console.WriteLine("Entre com as medidas do triângulo X:");
+        xA = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        xB = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        xC = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        Console.WriteLine("Entre com as medidas do triângulo Y:");
+        yA = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        yB = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        yC = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        double p = (xA + xB + xC) / 2.0;
+        double areaX = Math.Sqrt(p * (p - xA) * (p - xB) * (p - xC));
+        p = (yA + yB + yC) / 2.0;
+        double areaY = Math.Sqrt(p * (p - yA) * (p - yB) * (p - yC));
+        Console.WriteLine("Área de X = " + areaX.ToString("F4", CultureInfo.InvariantCulture));
+        Console.WriteLine("Área de Y = " + areaY.ToString("F4", CultureInfo.InvariantCulture));
+        if (areaX > areaY)
+        {
+            Console.WriteLine("Maior área: X");
+        }
+        else
+        {
+            Console.WriteLine("Maior área: Y");
+        }
 
-        Console.WriteLine("===========================");
-        Console.WriteLine("Entrada: Valor do Raio");
-        double d = double.Parse(Console.ReadLine());
-        double area = Math.PI * Math.Pow(d, 2);
-        Console.WriteLine($"Saída: A={area:F4}");
-
-        Console.WriteLine("======================================");
-        int n1 = int.Parse(Console.ReadLine());
-        int n2 = int.Parse(Console.ReadLine());
-        int n3 = int.Parse(Console.ReadLine());
-        int n4 = int.Parse(Console.ReadLine());
-        int diferenca = (n1 * n2 - n3 * n4);
-        Console.WriteLine("Diferença = " + diferenca);
-
-       
-        
     }
 }
