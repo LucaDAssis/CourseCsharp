@@ -4,32 +4,43 @@ using System.Globalization;
 internal class Program
 {
     private static void Main(string[] args)
-    {   
-        Triangulo x = new Triangulo();
-        Triangulo y = new Triangulo();
-        
-        Console.WriteLine("Entre com as medidas do triângulo X:");
-        x.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        x.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        x.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        Console.WriteLine("Entre com as medidas do triângulo Y:");
-        y.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        double p = (x.A + x.B + x.C) / 2.0;
-        double areaX = Math.Sqrt(p * (p - x.A) * (p - x.B) * (p - x.C));
-        p = (y.A + y.B + y.C) / 2.0;
-        double areaY = Math.Sqrt(p * (p - y.A) * (p - y.B) * (p - y.C));
-        Console.WriteLine("Área de X = " + areaX.ToString("F4", CultureInfo.InvariantCulture));
-        Console.WriteLine("Área de Y = " + areaY.ToString("F4", CultureInfo.InvariantCulture));
-        if (areaX > areaY)
+    {  
+
+        Pessoas p1 = new Pessoas();
+        Pessoas p2 = new Pessoas();
+
+        Console.WriteLine("Dados da Primeira Pessoa: ");
+        p1.nome = Console.ReadLine();
+        p1.idade = int.Parse(Console.ReadLine());
+        Console.WriteLine("Dados da Segunda Pessoa: ");
+        p2.nome = Console.ReadLine();
+        p2.idade = int.Parse(Console.ReadLine());
+
+        if (p1.idade > p2.idade)
         {
-            Console.WriteLine("Maior área: X");
+            Console.WriteLine(p1.nome);
         }
         else
         {
-            Console.WriteLine("Maior área: Y");
+            Console.WriteLine(p2.nome);
         }
+
+
+        Funcionario f1 = new Funcionario();
+        Funcionario f2 = new Funcionario();
+
+        Console.WriteLine("Dados do primeiro funcionário: ");
+        f1.nome = Console.ReadLine(); 
+        f1.salario = double.Parse(Console.ReadLine());
+        Console.WriteLine("Dados do Segundo Funcionário: ");
+        f2.nome = Console.ReadLine();
+        f2.salario = double.Parse(Console.ReadLine());
+
+        double medio = (f1.salario + f2.salario) / 2;
+
+        Console.WriteLine(medio);
+
+
 
     }
 }
