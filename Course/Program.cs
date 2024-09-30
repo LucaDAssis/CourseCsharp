@@ -8,6 +8,7 @@ internal class Program
 
         Pessoas p1 = new Pessoas();
         Pessoas p2 = new Pessoas();
+        Pessoas p3 = new Pessoas();
 
         Console.WriteLine("Dados da Primeira Pessoa: ");
         p1.nome = Console.ReadLine();
