@@ -5,28 +5,27 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Produto p = new Produto("TV", 500.00, 10);
-        Console.WriteLine("Entre os dados do produto:");
-        Console.Write("Nome: ");
-        String Nome = Console.ReadLine();
-        Console.Write("Preço: ");
-        double Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        Console.Write("Quantidade no estoque: ");
-        p.Quantidade = int.Parse(Console.ReadLine());
-        Console.WriteLine();
-        Console.WriteLine("Dados do produto: " + p);
-        Console.WriteLine();
-        Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
-        int qte = int.Parse(Console.ReadLine());
-        p.AdicionarProdutos(qte);
-        Console.WriteLine();
-        Console.WriteLine("Dados atualizados: " + p);
-        Console.WriteLine();
-        Console.Write("Digite o número de produtos a ser removido do estoque: ");
-        qte = int.Parse(Console.ReadLine());
-        p.RemoverProdutos(qte);
-        Console.WriteLine();
-        Console.WriteLine("Dados atualizados: " + p);
+        Console.Write("Entre o número da conta: ");
+        int numero = int.Parse(Console.ReadLine());
+        Console.Write("Entre o titular da conta: ");
+        String nome = Console.ReadLine();
+        Console.Write("Haverá depósito inicial (s/n)?");
+        char resp = char.Parse(Console.ReadLine());
+        if (resp == 's' || resp == 'S')
+        {
+            Console.Write("Entre o valor de depósito inicial: ");
+            double deposito = double.Parse(Console.ReadLine());
+            ContaBancaria conta = new ContaBancaria(numero, nome,deposito);
+            Console.WriteLine(conta);
+        }
+        else
+        {
+            ContaBancaria conta = new ContaBancaria(numero, nome);
+            Console.WriteLine(conta);
+        }
+
+
+        
 
     }
 }
