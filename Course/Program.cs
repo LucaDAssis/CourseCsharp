@@ -4,41 +4,50 @@ using System.Globalization;
 internal class Program
 {
     private static void Main(string[] args)
-    {   
-        int n = int.Parse(Console.ReadLine());
+    {
+        string[] line = Console.ReadLine().Split(' ');
+        int m = int.Parse(line[0]);
+        int n = int.Parse(line[1]);
 
-        int[,] mat = new int[n, n];
+        int[,] mat = new int[m, n];
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < m; i++)
         {
             string[] values = Console.ReadLine().Split(' ');
-
             for (int j = 0; j < n; j++)
             {
                 mat[i, j] = int.Parse(values[j]);
             }
         }
 
-        Console.WriteLine("Main Diagonal: ");
-        for (int i = 0; i < n; i++)
-        {
-            Console.Write(mat[i, i] + " ");
-        }
-        Console.WriteLine();
+        int x = int.Parse(Console.ReadLine());
 
-        int contagem = 0;
-        //estrutura base para correr um matrix
-        for( int i = 0;i < n; i++)
+        for (int i = 0; i < m; i++)
         {
-            for (int j = 0;j < n; j++)
+            for (int j = 0; j < n; j++)
             {
-                if (mat[i, j] < 0)
+                if (mat[i, j] == x)
                 {
-                    contagem++;
+                    Console.WriteLine("Position " + i + "," + j + ":");
+                    if (j > 0)
+                    {
+                        Console.WriteLine("Left: " + mat[i, j - 1]);
+                    }
+                    if (i > 0)
+                    {
+                        Console.WriteLine("Up: " + mat[i - 1, j]);
+                    }
+                    if (j < n - 1)
+                    {
+                        Console.WriteLine("Right: " + mat[i, j + 1]);
+                    }
+                    if (i < m - 1)
+                    {
+                        Console.WriteLine("Down: " + mat[i + 1, j]);
+                    }
                 }
             }
         }
-        Console.WriteLine("Negative numbers: " + contagem);
     }
 
 
