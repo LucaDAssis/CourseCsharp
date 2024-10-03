@@ -4,46 +4,40 @@ using System.Globalization;
 internal class Program
 {
     private static void Main(string[] args)
-    {
-        Console.Write("How many employees will be registered? ");
+    {   
         int n = int.Parse(Console.ReadLine());
 
-        List<Employee> list = new List<Employee>();
+        int[,] mat = new int[n, n];
 
-        for (int i = 1; i <= n; i++)
+        for (int i = 0; i < n; i++)
         {
-            Console.WriteLine("Employee #" + i + ":");
-            Console.Write("Id: ");
-            int id = int.Parse(Console.ReadLine());
-            Console.Write("Name: ");
-            string name = Console.ReadLine();
-            Console.Write("Salary: ");
-            double salary = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            list.Add(new Employee(id, name, salary));
-            Console.WriteLine();
+            string[] values = Console.ReadLine().Split(' ');
+
+            for (int j = 0; j < n; j++)
+            {
+                mat[i, j] = int.Parse(values[j]);
+            }
         }
 
-        Console.Write("Enter the employee id that will have salary increase : ");
-        int searchId = int.Parse(Console.ReadLine());
-
-        Employee emp = list.Find(x => x.Id == searchId);
-        if (emp != null)
+        Console.WriteLine("Main Diagonal: ");
+        for (int i = 0; i < n; i++)
         {
-            Console.Write("Enter the percentage: ");
-            double percentage = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            emp.IncreaseSalary(percentage);
+            Console.Write(mat[i, i] + " ");
         }
-        else
-        {
-            Console.WriteLine("This id does not exist!");
-        }
-
         Console.WriteLine();
-        Console.WriteLine("Updated list of employees:");
-        foreach (Employee obj in list)
+
+        int contagem = 0;
+        for( int i = 0;i < n; i++)
         {
-            Console.WriteLine(obj);
+            for (int j = 0;j < n; j++)
+            {
+                if (mat[i, j] < 0)
+                {
+                    contagem++;
+                }
+            }
         }
+        Console.WriteLine("Negative numbers: " + contagem);
     }
 
 
