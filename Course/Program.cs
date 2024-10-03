@@ -5,27 +5,32 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.Write("Entre o número da conta: ");
-        int numero = int.Parse(Console.ReadLine());
-        Console.Write("Entre o titular da conta: ");
-        String nome = Console.ReadLine();
-        Console.Write("Haverá depósito inicial (s/n)?");
-        char resp = char.Parse(Console.ReadLine());
-        if (resp == 's' || resp == 'S')
+        Estudante[] vect = new Estudante[10];
+        Console.Write("Quantos quartos serão alugados? ");
+        int n = int.Parse(Console.ReadLine());
+        for (int i = 1; i <= n; i++)
         {
-            Console.Write("Entre o valor de depósito inicial: ");
-            double deposito = double.Parse(Console.ReadLine());
-            ContaBancaria conta = new ContaBancaria(numero, nome,deposito);
-            Console.WriteLine(conta);
+            Console.WriteLine();
+            Console.WriteLine($"Aluguel #{i}:");
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+            Console.Write("Quarto: ");
+            int quarto = int.Parse(Console.ReadLine());
+            vect[quarto] = new Estudante(nome, email);
         }
-        else
+        Console.WriteLine();
+        Console.WriteLine("Quartos ocupados:");
+        for (int i = 0; i < 10; i++)
         {
-            ContaBancaria conta = new ContaBancaria(numero, nome);
-            Console.WriteLine(conta);
+            if (vect[i] != null)
+            {
+                Console.WriteLine(i + ": " + vect[i]);
+            }
         }
 
 
-        
 
     }
 }
