@@ -17,5 +17,16 @@ namespace Course
         {
             return 4.0 / 3.0 * Pi * r * r * r;
         }
+
+        public static int soma(params int[] numeros)
+        {
+            int sum = 0;
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                sum += numeros[i];
+            }
+            return sum;
+        }
+
     }
 }
